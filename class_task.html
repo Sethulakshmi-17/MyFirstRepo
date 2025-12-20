@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calculator(first_num,second_num,calculate){
+            switch(calculate){
+                case "add":
+                    console.log("Addition");
+                    return first_num+second_num;
+                case "sub":
+                    console.log("Subtraction");
+                    return first_num-second_num;
+                case "mul":
+                    console.log("Multiplication");
+                    return first_num*second_num;
+                case "div":
+                    console.log("Division");
+                    return first_num/second_num;
+            }
+        }
+        
+        let first_num=Number(prompt("Enter the first number:"));
+        let second_num=Number(prompt("Enter the second number:"));
+        const calculate=prompt("Enter the operation:");
+        let result=calculator(first_num,second_num,calculate);
+        console.log(result);
+    </script>
+</body>
+</html>

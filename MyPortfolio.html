@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: linear-gradient(to right, rgb(64, 142, 198), rgb(220, 54, 167));
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #171615;
+    }
+    h1 {
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 60px;
+      font-style: italic;
+      margin-top: 60px;
+      background: linear-gradient(to right, #d1c40e, #0c0c0c);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #stickyNav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+      background: rgba(227, 217, 217, 0.4);
+      backdrop-filter: blur(6px);
+      z-index: 999;
+    }
+    #stickyNav div {
+      background: rgba(137, 115, 115, 0.2);
+      color: white;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.9s;
+    }
+    #stickyNav div:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .intro-flex {
+      display: flex;
+      align-items: center;
+      margin: 120px 0 30px 0;
+      gap: 40px;
+      justify-content: flex-start;
+    }
+    .profile-img-box {
+      margin-left: 60px;
+    }
+    .profile-img-box img {
+      width: 390px;
+      height: auto;
+      border-radius: 120px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+      display: block;
+    }
+    .intro-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: white;
+      margin-left: 10px;
+    }
+    .intro-details h2 {
+      font-size: 60px;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      font-weight: bold;
+      margin: 0 0 10px 0;
+    }
+    .intro-details h3 {
+      font-size: 45px;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      margin: 0 0 10px 0;
+      font-weight: bold;
+      color: black;
+    }
+    .intro-details p {
+      font-size: 25px;
+      font-family: 'Times New Roman', Times, serif;
+      font-style: italic;
+      margin: 0;
+      max-width: 1000px;
+      line-height: 1.4;
+      color: darkblue;
+    }
+
+    .skills-section{
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 600px;
+      margin: 40px auto;
+      padding: 20px 30px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .follow-section {
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 400px;
+      margin: 40px auto;
+      padding: 20px 30px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .skills-section h2,
+    .follow-section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill-bar {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      overflow: hidden;
+      height: 25px;
+    }
+
+    .skill-level {
+      background-color: #458eec;
+      color: white;
+      font-weight: bold;
+      text-align: right;
+      padding-right: 10px;
+      line-height: 25px;
+      border-radius: 20px;
+    }
+
+    .form-container, .info-container {
+      background-color: rgba(255, 255, 255, 0.2);
+      width: 500px;
+      margin: 40px auto 50px;
+      padding: 20px 30px;
+      border-radius: 10px;
+      backdrop-filter: blur(4px);
+      color: white;
+      font-size: 16px;
+    }
+
+    .form-container h2, .info-container h2 {
+      text-align: center;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border: none;
+      background-color: #210e07;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4e342e;
+    }
+
+    .info-container p {
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>MyPortfolio</h1>
+
+  <div id="stickyNav">
+    <div onclick="scrollToSection('homeSection')">Home</div>
+    <div onclick="scrollToSection('skillsSection')">Skills</div>
+    <div onclick="scrollToSection('contactSection')">Follow Me</div>
+    <div onclick="scrollToSection('formPage')">Login</div>
+  </div>
+
+  <div class="intro-flex" id="homeSection">
+    <div class="profile-img-box">
+      <img src="Myphoto.png" alt="Profile Photo">
+    </div>
+    <div class="intro-details">
+      <h2>Hey 👋, I'm Sethulakshmi</h2>
+      <h3>Web Developer</h3>
+      <p>I'm a Front-End Developer who loves turning ideas into clean, responsive, and user-friendly websites. Always learning and improving to create the best web experiences.</p>
+    </div>
+  </div>
+
+  <div class="skills-section" id="skillsSection">
+    <h2>My Skills</h2>
+    <div class="skill">
+      <label>HTML</label>
+      <div class="skill-bar"><div class="skill-level" style="width: 95%;">95%</div></div>
+    </div>
+    <div class="skill">
+      <label>CSS</label>
+      <div class="skill-bar"><div class="skill-level" style="width: 90%;">90%</div></div>
+    </div>
+    <div class="skill">
+      <label>JavaScript</label>
+      <div class="skill-bar"><div class="skill-level" style="width: 85%;">85%</div></div>
+    </div>
+    <div class="skill">
+      <label>React</label>
+      <div class="skill-bar"><div class="skill-level" style="width: 75%;">75%</div></div>
+    </div>
+  </div>
+
+  <div class="follow-section" id="contactSection">
+    <h2>Follow Me</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 20px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" width="40" height="40">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111421.png" alt="Instagram" width="40" height="40">
+      <img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter" width="40" height="40">
+      <img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" width="40" height="40">
+    </div>
+  </div>
+
+ 
+  <div class="form-container" id="formPage">
+    <h2>Login / Personal Info</h2>
+    <form onsubmit="showInfo(event)">
+      <label>Name:</label>
+      <input id="name" type="text" required>
+      <label>Age:</label>
+      <input id="age" type="number" required>
+      <label>Gender:</label>
+      <select id="gender" required>
+        <option value="">Select gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+      <label>Address:</label>
+      <textarea id="address" rows="3"></textarea>
+      <label>Email:</label>
+      <input id="email" type="email" required>
+      <label>Phone:</label>
+      <input id="phone" type="tel">
+      <label>Password:</label>
+      <input id="password" type="password" required>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="info-container" id="infoPage" style="display:none;">
+    <h2>Submitted Information</h2>
+    <div id="output"></div>
+    <button onclick="goBack()">Go Back</button>
+  </div>
+
+  <script>
+    function showInfo(event) {
+      event.preventDefault();
+      const data = {
+        name: document.getElementById('name').value,
+        age: document.getElementById('age').value,
+        gender: document.getElementById('gender').value,
+        address: document.getElementById('address').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value
+      };
+      document.getElementById('formPage').style.display = 'none';
+      document.getElementById('infoPage').style.display = 'block';
+      document.getElementById('output').innerHTML = `
+        <p><strong>Name:</strong> ${data.name}</p>
+        <p><strong>Age:</strong> ${data.age}</p>
+        <p><strong>Gender:</strong> ${data.gender}</p>
+        <p><strong>Address:</strong> ${data.address}</p>
+        <p><strong>Email:</strong> ${data.email}</p>
+        <p><strong>Phone:</strong> ${data.phone}</p>
+      `;
+    }
+
+    function goBack() {
+      document.getElementById('infoPage').style.display = 'none';
+      document.getElementById('formPage').style.display = 'block';
+    }
+
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
